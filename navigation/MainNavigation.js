@@ -1,37 +1,42 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import ProductsOverviewScreen from "../screens/shop/ProductsOverviewScreen";
-import ProductDetailScreen from "../screens/shop/ProductDetailScreen";
+import FilterScreen from "../screens/FilterScreen";
+import BottomNavigation from "./BottomNavigation";
+
+const Drawer = createDrawerNavigator();
+
+const FilterNav = createNativeStackNavigator();
+
+const FilterScreenWrapper = () => {
+  return (
+    <FilterNav.Navigator screenOptions={{ headerTitle: "Filter" }} initialRouteName="FilterScreen">
+      <FilterNav.Screen name="FilterScreen" component={FilterScreen} />
+    </FilterNav.Navigator>
+  );
+};
 
 function MainNavigation() {
-  const Tab = createBottomTabNavigator();
-
-  // screenOptions={{ headerShown: false, tabBarActiveTintColor: Colors.accentColor }}
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Products"
-        component={ProductsOverviewScreen}
-        options={{
-          tabBarIcon: ({ color }) => {
-            return <Ionicons name="ios-restaurant" size={25} color={color} />;
-          },
-        }}
+    <Drawer.Navigator
+      initialRouteName="bottomNavigation"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Drawer.Screen
+        name="bottomNavigation"
+        drawerLabel="products"
+        options={{ drawerLabel: "Meals" }}
+        component={BottomNavigation}
       />
-      <Tab.Screen
-        name="ProductDetail"
-        component={ProductDetailScreen}
-        options={{
-          tabBarLabel: "User",
-          tabBarIcon: ({ color }) => {
-            return <Ionicons name="ios-star" size={25} color={color} />;
-          },
-        }}
+      <Drawer.Screen
+        name="FilterNavigation"
+        options={{ drawerLabel: "Filter" }}
+        component={FilterScreenWrapper}
       />
-    </Tab.Navigator>
+    </Drawer.Navigator>
   );
 }
-
 export default MainNavigation;

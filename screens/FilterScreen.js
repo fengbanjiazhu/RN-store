@@ -1,12 +1,12 @@
 import React from "react";
 import { Box, Text } from "native-base";
 
-function CartScreen() {
+function FilterScreen() {
   return (
     <Box>
-      <Text>Cart</Text>
+      <Text>FilterScreen</Text>;
     </Box>
   );
 }
 
-export default CartScreen;
+export default FilterScreen;
