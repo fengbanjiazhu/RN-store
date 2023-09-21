@@ -90,17 +90,4 @@ export default PRODUCTS = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
-  {
-    _id: "6477e9fb5ce0c0cbdefae485",
-    title: "jean 18",
-    price: 94,
-    img01: "product-10 (1).jpg",
-    img02: "product-10 (2).jpg",
-    categorySlug: "jean",
-    colors: ["blue", "black"],
-    slug: "jean-18",
-    size: ["s", "m", "l", "xl"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
 ];

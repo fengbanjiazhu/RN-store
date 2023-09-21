@@ -36,10 +36,10 @@ function ProductList({ product }) {
           }}
         >
           <Box>
-            <AspectRatio w="100%" ratio={16 / 9}>
+            <AspectRatio w="100%" ratio={6 / 9}>
               <Image
                 source={{
-                  uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+                  uri: `https://github.com/fengbanjiazhu/RN-store/blob/main/assets/products/${img01}?raw=true`,
                 }}
                 alt="image"
               />
