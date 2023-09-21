@@ -4,13 +4,13 @@ import { FlatList } from "native-base";
 
 import ProductList from "../../components/ProductList";
 
-function ProductsOverviewScreen({}) {
+function ProductsOverviewScreen({ navigation }) {
   const productData = useSelector((state) => state.product.availableProducts);
 
   return (
     <FlatList
       data={productData}
-      renderItem={({ item }) => <ProductList product={item} />}
+      renderItem={({ item }) => <ProductList product={item} navigation={navigation} />}
       keyExtractor={(item) => item._id}
     />
   );

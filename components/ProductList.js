@@ -11,12 +11,14 @@ import {
   Pressable,
 } from "native-base";
 
-function ProductList({ product }) {
+function ProductList({ product, navigation }) {
   const { _id, categorySlug, img01, price, size, title } = product;
+
+  const jumpToDetail = () => navigation.navigate("DetailScreen", { id: _id, title });
 
   return (
     <Box alignItems="center" marginTop={3}>
-      <Pressable onPress={() => console.log(`${title} is pressed`)}>
+      <Pressable onPress={jumpToDetail}>
         <Box
           maxW="80"
           rounded="lg"

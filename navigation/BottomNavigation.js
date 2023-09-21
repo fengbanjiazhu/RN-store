@@ -16,7 +16,7 @@ function BottomNavigation() {
         component={ProductNavigation}
         options={{
           tabBarIcon: ({ color }) => {
-            return <Ionicons name="ios-restaurant" size={25} color={color} />;
+            return <Ionicons name="shirt" size={25} color={color} />;
           },
         }}
       />
@@ -26,7 +26,7 @@ function BottomNavigation() {
         options={{
           tabBarLabel: "Cart",
           tabBarIcon: ({ color }) => {
-            return <Ionicons name="ios-star" size={25} color={color} />;
+            return <Ionicons name="cart" size={25} color={color} />;
           },
         }}
       />
@@ -36,7 +36,7 @@ function BottomNavigation() {
         options={{
           tabBarLabel: "User",
           tabBarIcon: ({ color }) => {
-            return <Ionicons name="ios-star" size={25} color={color} />;
+            return <Ionicons name="person" size={25} color={color} />;
           },
         }}
       />

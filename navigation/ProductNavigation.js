@@ -13,7 +13,11 @@ function ProductNavigation() {
       initialRouteName="OverviewScreen"
     >
       <ProductNav.Screen name="OverviewScreen" component={ProductsOverviewScreen} />
-      <ProductNav.Screen name="DetailScreen" component={ProductDetailScreen} />
+      <ProductNav.Screen
+        name="DetailScreen"
+        component={ProductDetailScreen}
+        options={({ route }) => ({ headerTitle: route.params.title })}
+      />
     </ProductNav.Navigator>
   );
 }
