@@ -1,10 +1,16 @@
 import React from "react";
-import { FlatList } from "native-base";
+import { FlatList, Text } from "native-base";
 import { useSelector } from "react-redux";
 
-function UserProductsScreen() {
+function ProductDetailScreen({ route }) {
+  const { id } = route.params;
   const products = useSelector((state) => state.product.availableProducts);
-  return <FlatList>UserProductsScreen</FlatList>;
+
+  const currentProduct = products.find((product) => product._id === id);
+
+  // console.log(currentProduct);
+
+  return <Text>ProductDetailScreen</Text>;
 }
 
-export default UserProductsScreen;
+export default ProductDetailScreen;
