@@ -5,7 +5,12 @@ import { Box, Center, HStack, Stack, Text, Heading, ScrollView, Button } from "n
 import CustomCarousel from "../../components/CustomCarousel";
 import { imageSource } from "../../utils/imageSource";
 
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/slices/cartSlice";
+
 function ProductDetailScreen({ route }) {
+  const dispatch = useDispatch();
+
   const { id } = route.params;
   const products = useSelector((state) => state.product.availableProducts);
 
@@ -76,7 +81,7 @@ function ProductDetailScreen({ route }) {
                   {`${categorySlug} [${size.join(" / ")}]`}
                 </Text>
               </Stack>
-              <Button onPress={() => console.log("hello world")}>Add to cart</Button>
+              <Button onPress={() => dispatch(addItem(currentProduct))}>Add to cart</Button>
             </HStack>
             <Text fontWeight="400">{description}</Text>
           </Stack>
