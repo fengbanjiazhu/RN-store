@@ -1,16 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {
-  AspectRatio,
-  Box,
-  Center,
-  HStack,
-  Stack,
-  Text,
-  Image,
-  Heading,
-  ScrollView,
-} from "native-base";
+import { Box, Center, HStack, Stack, Text, Heading, ScrollView } from "native-base";
+
+import CustomCarousel from "../../components/CustomCarousel";
+import { imageSource } from "../../utils/imageSource";
 
 function ProductDetailScreen({ route }) {
   const { id } = route.params;
@@ -18,13 +11,14 @@ function ProductDetailScreen({ route }) {
 
   const currentProduct = products.find((product) => product._id === id);
 
-  const { categorySlug, img01, price, size, title } = currentProduct;
+  const { categorySlug, img01, img02, price, size, title, description } = currentProduct;
 
+  const imgs = [imageSource(img01), imageSource(img02)];
   return (
     <ScrollView>
-      <Box alignItems="center" marginTop={3}>
+      <Box alignItems="center" marginTop={1}>
         <Box
-          maxW="80"
+          maxW="500"
           rounded="lg"
           overflow="hidden"
           borderColor="coolGray.200"
@@ -42,14 +36,7 @@ function ProductDetailScreen({ route }) {
           }}
         >
           <Box>
-            <AspectRatio w="100%" ratio={6 / 9}>
-              <Image
-                source={{
-                  uri: `https://github.com/fengbanjiazhu/RN-store/blob/main/assets/products/${img01}?raw=true`,
-                }}
-                alt="image"
-              />
-            </AspectRatio>
+            <CustomCarousel img01={img01} img02={img02} images={imgs} />
             <Center
               bg="violet.500"
               _dark={{
@@ -88,10 +75,7 @@ function ProductDetailScreen({ route }) {
                 {`${categorySlug} [${size.join("/")}]`}
               </Text>
             </Stack>
-            <Text fontWeight="400">
-              Bengaluru (also called Bangalore) is the center of India's high-tech industry. The
-              city is also known for its parks and nightlife.
-            </Text>
+            <Text fontWeight="400">{description}</Text>
             <HStack alignItems="center" space={4} justifyContent="space-between">
               <HStack alignItems="center">
                 <Text
