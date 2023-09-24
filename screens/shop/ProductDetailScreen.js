@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Box, Center, HStack, Stack, Text, Heading, ScrollView } from "native-base";
+import { Box, Center, HStack, Stack, Text, Heading, ScrollView, Button } from "native-base";
 
 import CustomCarousel from "../../components/CustomCarousel";
 import { imageSource } from "../../utils/imageSource";
@@ -56,39 +56,29 @@ function ProductDetailScreen({ route }) {
             </Center>
           </Box>
           <Stack p="4" space={3}>
-            <Stack space={2}>
-              <Heading size="md" ml="-1">
-                {`$${price} AUD`}
-              </Heading>
-              <Text
-                fontSize="xs"
-                _light={{
-                  color: "violet.500",
-                }}
-                _dark={{
-                  color: "violet.400",
-                }}
-                fontWeight="500"
-                ml="-0.5"
-                mt="-1"
-              >
-                {`${categorySlug} [${size.join("/")}]`}
-              </Text>
-            </Stack>
-            <Text fontWeight="400">{description}</Text>
-            <HStack alignItems="center" space={4} justifyContent="space-between">
-              <HStack alignItems="center">
+            <HStack justifyContent={"space-between"}>
+              <Stack space={2}>
+                <Heading size="md" ml="-1">
+                  {`$${price} AUD`}
+                </Heading>
                 <Text
-                  color="coolGray.600"
-                  _dark={{
-                    color: "warmGray.200",
+                  fontSize="xs"
+                  _light={{
+                    color: "violet.500",
                   }}
-                  fontWeight="400"
+                  _dark={{
+                    color: "violet.400",
+                  }}
+                  fontWeight="500"
+                  ml="-0.5"
+                  mt="-1"
                 >
-                  6 mins ago
+                  {`${categorySlug} [${size.join(" / ")}]`}
                 </Text>
-              </HStack>
+              </Stack>
+              <Button onPress={() => console.log("hello world")}>Add to cart</Button>
             </HStack>
+            <Text fontWeight="400">{description}</Text>
           </Stack>
         </Box>
       </Box>
