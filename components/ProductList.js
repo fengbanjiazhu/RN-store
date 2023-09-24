@@ -1,15 +1,6 @@
 import React from "react";
-import {
-  AspectRatio,
-  Box,
-  Center,
-  HStack,
-  Stack,
-  Text,
-  Image,
-  Heading,
-  Pressable,
-} from "native-base";
+import { TouchableOpacity } from "react-native";
+import { AspectRatio, Box, Center, HStack, Stack, Text, Image, Heading } from "native-base";
 
 function ProductList({ product, navigation }) {
   const { _id, categorySlug, img01, price, size, title } = product;
@@ -18,7 +9,7 @@ function ProductList({ product, navigation }) {
 
   return (
     <Box alignItems="center" marginTop={3}>
-      <Pressable onPress={jumpToDetail}>
+      <TouchableOpacity activeOpacity={0.8} onPress={jumpToDetail}>
         <Box
           maxW="80"
           rounded="lg"
@@ -99,7 +90,7 @@ function ProductList({ product, navigation }) {
             </HStack>
           </Stack>
         </Box>
-      </Pressable>
+      </TouchableOpacity>
     </Box>
   );
 }
